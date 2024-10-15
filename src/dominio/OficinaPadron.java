@@ -37,4 +37,21 @@ private void cargarHabitantes(){
     System.out.println("No hay habitantes inscritos");}
 }
 
+public OficinaPadron(){
+cargarHabitantes();
 }
+public void volcarContactos(){
+try{
+FileWriter fw = new FileWriter("padron.csv");
+for(Habitante habitante : habitantesPadron){
+fw.write(habitante.getNombre() + "," +
+habitante.getApellido1() + "," +
+habitante.getApellido2() + "n");
+}
+fw.close();
+}catch(IOException ex){
+System.err.println(ex);
+}
+}
+}
+
